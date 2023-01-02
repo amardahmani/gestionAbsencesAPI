@@ -32,7 +32,7 @@ db.matiere = require("../model/matiere.model.js")(sequelize, Sequelize);
 db.seance = require("../model/seance.model.js")(sequelize, Sequelize);
 db.enseignant = require("../model/enseignant.model.js")(sequelize, Sequelize);
 db.justification = require("../model/justification.model.js")(sequelize, Sequelize);
-
+db.enseignement = require("../model/enseignement.model.js")(sequelize, Sequelize);
 
 db.role.belongsToMany(db.user, {
   through: "user_roles",
@@ -62,20 +62,20 @@ db.matiere.hasMany(db.seance,{
 });
 
 db.seance.belongsToMany(db.enseignant, {
-  through: "enseignement",
+  through: db.enseignement,
   foreignKey: "seance",
   otherKey: "enseignant"
 })
 
 db.enseignant.belongsToMany(db.seance, {
-  through: "enseignement",
+  through: db.enseignement,
   foreignKey: "enseignant",
   otherKey: "seance"
 })
 
 
 
-db.ROLES = ["admin", "enseignant", "etudiant"];
+db.ROLES = ["admin","chefDepartement", "enseignant", "etudiant"];
 
 
 

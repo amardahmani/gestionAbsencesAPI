@@ -13,11 +13,10 @@ module.exports = (sequelize, Sequelize) => {
       specialite: {
         type: Sequelize.STRING
       },
-      enseignant: {
-        type: Sequelize.INTEGER
-      },
-      
-      
+      matiere: {
+        type: Sequelize.STRING
+      }
+        
     });
     return Seance;
   };

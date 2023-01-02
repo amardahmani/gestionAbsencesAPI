@@ -9,6 +9,9 @@ module.exports = (sequelize, Sequelize) => {
       },
       date_justification: {
         type: Sequelize.DATE
+      },
+      numero_absence: {
+        type: Sequelize.INTEGER
       }
     });
     return Justification;
